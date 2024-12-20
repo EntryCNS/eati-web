@@ -1,10 +1,9 @@
 import React from 'react'
 import Router from '../src/router';
 import styled from 'styled-components';
-import { BrowserRouter} from "react-router-dom";
-
+ 
 const AppContainer = styled.div`
-  max-width: 480px;
+  max-width: 600px;
   margin: 0 auto;
   min-height: 100vh;
   background-color: #f8f9fa;
@@ -16,6 +15,7 @@ const AppContainer = styled.div`
 function App() {
   return (
       <AppContainer>
+        <Router />
       </AppContainer>
   );
 }
