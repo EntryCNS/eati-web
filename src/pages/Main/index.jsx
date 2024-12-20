@@ -3,7 +3,7 @@ import * as S from './style';
 
 const Main = () => {
   return (
-    <div>ㅇㅇㅇㅇㅇ안녕</div>
+    <div></div>
   )
 }
 
