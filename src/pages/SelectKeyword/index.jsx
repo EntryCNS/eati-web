@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
-import backbutton from '../../asset/back.svg'
+import backbutton from "../../asset/back.svg";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const SelectKeyword = () => {
   const navigate = useNavigate();
 
-  function handleClick(){
-    navigate('/')
+  function handleBackButton() {
+    navigate("/");
   }
+
+  function handleSelectButton() {
+    navigate("/CreatingGroup");
+  }
+
 
   return (
     <div>
-      <S.backbutton src={backbutton} onClick={handleClick}></S.backbutton>
+      <S.backbutton src={backbutton} onClick={handleBackButton}></S.backbutton>
       <div>
         <S.FoodQuestion>어떤 음식을 원하시나요?</S.FoodQuestion>
         <S.RestaurantRecommendations>
@@ -83,7 +88,7 @@ const SelectKeyword = () => {
         </S.KeywordButtonContainer>
       </div>
       <S.SelectButtonContainer>
-        <S.SelectButton>선택 완료</S.SelectButton>
+        <S.SelectButton onClick={handleSelectButton}>선택 완료</S.SelectButton>
       </S.SelectButtonContainer>
     </div>
   );

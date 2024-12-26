@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { createGlobalStyle } from 'styled-components';
 
 export const backbutton = styled.img`
   margin-left: 25px;
@@ -33,8 +32,11 @@ export const KeywordButton = styled.button`
   height: 4vh;
   border: none;
   font-size: 0.9em;
-  background-color: #FFDCD4;
+  background-color: ${(props) => (props.isClicked ? "#FF491B" : "#FFDCD4")};
   cursor: pointer;
+  &:active {
+    transform:scale(1.03,1.03);
+  }
 `
 
 export const KeywordButtonContainer = styled.div`
@@ -46,7 +48,7 @@ export const KeywordButtonContainer = styled.div`
 `
 
 export const SelectButton = styled.button`
-  margin-top: 60px;
+  margin-top: 45px;
   width: 35.7vw;
   height: 6vh;
   border: none;
