@@ -34,7 +34,7 @@ export const KeywordButton = styled.button`
   font-size: 0.9em;
   background-color: ${(props) => (props.isClicked ? "#FF491B" : "#FFDCD4")};
   cursor: pointer;
-  &:active {
+  &:hover {
     transform:scale(1.03,1.03);
   }
 `

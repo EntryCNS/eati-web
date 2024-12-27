@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import backbutton from "../../asset/back.svg";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {FLAVOR} from '../../constants/keyword/flavor';
+import {KIND} from '../../constants/keyword/kind'
+import {OTHERS} from '../../constants/keyword/others'
+import { click } from "@testing-library/user-event/dist/click";
 
 const SelectKeyword = () => {
   const navigate = useNavigate();
@@ -13,7 +17,6 @@ const SelectKeyword = () => {
   function handleSelectButton() {
     navigate("/CreatingGroup");
   }
-
 
   return (
     <div>
@@ -35,16 +38,11 @@ const SelectKeyword = () => {
           }}
         />
         <S.KeywordButtonContainer>
-          <S.KeywordButton>담백한</S.KeywordButton>
-          <S.KeywordButton>칼칼한</S.KeywordButton>
-          <S.KeywordButton>매콤한</S.KeywordButton>
-          <S.KeywordButton>고소한</S.KeywordButton>
-          <S.KeywordButton>짭짤한</S.KeywordButton>
-          <S.KeywordButton>얼큰한</S.KeywordButton>
-          <S.KeywordButton>시원한</S.KeywordButton>
-          <S.KeywordButton>새콤한</S.KeywordButton>
-          <S.KeywordButton>달달한</S.KeywordButton>
-          <S.KeywordButton>쌉쌀한</S.KeywordButton>
+          {
+            FLAVOR.map((data)=>(
+              <S.KeywordButton>{data.name}</S.KeywordButton>
+            ))
+          }
         </S.KeywordButtonContainer>
       </div>
       <div>
@@ -58,16 +56,11 @@ const SelectKeyword = () => {
           }}
         />
         <S.KeywordButtonContainer>
-          <S.KeywordButton>양식</S.KeywordButton>
-          <S.KeywordButton>중식</S.KeywordButton>
-          <S.KeywordButton>한식</S.KeywordButton>
-          <S.KeywordButton>일식</S.KeywordButton>
-          <S.KeywordButton>브런치</S.KeywordButton>
-          <S.KeywordButton>동남아</S.KeywordButton>
-          <S.KeywordButton>치킨</S.KeywordButton>
-          <S.KeywordButton>피자</S.KeywordButton>
-          <S.KeywordButton>햄버거</S.KeywordButton>
-          <S.KeywordButton>야식</S.KeywordButton>
+          {
+            KIND.map((data)=>(
+              <S.KeywordButton>{data.name}</S.KeywordButton>
+            ))
+          }
         </S.KeywordButtonContainer>
       </div>
       <div>
@@ -81,10 +74,11 @@ const SelectKeyword = () => {
           }}
         />
         <S.KeywordButtonContainer>
-          <S.KeywordButton>요즘 유행</S.KeywordButton>
-          <S.KeywordButton>10대의</S.KeywordButton>
-          <S.KeywordButton>20대의</S.KeywordButton>
-          <S.KeywordButton>주차 가능한</S.KeywordButton>
+          {
+            OTHERS.map((data)=>(
+              <S.KeywordButton>{data.name}</S.KeywordButton>
+            ))
+          }
         </S.KeywordButtonContainer>
       </div>
       <S.SelectButtonContainer>
@@ -95,3 +89,4 @@ const SelectKeyword = () => {
 };
 
 export default SelectKeyword;
+
