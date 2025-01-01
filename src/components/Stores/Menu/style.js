@@ -19,6 +19,7 @@ export const StoreName = styled.p`
     font-family: 'yg-jalnan';
     font-size: 1em;
     margin: 5px;
+    color: #000000;
 `
 
 export const Border = styled.hr`

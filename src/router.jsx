@@ -13,7 +13,7 @@ const Router = () => {
         <Route path='/' element={<Main />} />
         <Route path='*' element={<NotFound />} />
         <Route path='/recommend' element={<StoreReco />} />
-        <Route path='/storeInfo' element={<StoreInfo />} />
+        <Route path='/product/:id' element={<StoreInfo />} />
       </Routes>
     </AppRouter>
   );
