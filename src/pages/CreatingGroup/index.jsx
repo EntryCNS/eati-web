@@ -10,7 +10,7 @@ const CreatingGroup = () => {
   function handleBackButton() {
     navigate("/");
   }
-
+ 
   return (
     <div>
       <S.backbutton src={backbutton} onClick={handleBackButton}></S.backbutton>
