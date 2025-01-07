@@ -45,7 +45,7 @@ const SelectKeyword = () => {
           }
         </S.KeywordButtonContainer>
       </div>
-      <div>
+      <div>  
         <S.Keyword>음식 종류</S.Keyword>
         <hr
           style={{
