@@ -11,7 +11,7 @@ const SelectKeyword = () => {
   const navigate = useNavigate();
 
   function handleBackButton() {
-    navigate("/");
+    navigate("/");    
   }
 
   function handleSelectButton() {
