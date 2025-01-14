@@ -55,3 +55,71 @@ export const exitButton = styled.button`
     line-height: normal; /* line-height 초기화 */
     padding: 0; /* 기본 패딩 제거 */
 `
+
+export const Button = styled.button`
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: all 0.2s;
+
+    &.primary {
+        background-color: #3b82f6;
+        color: white;
+
+        &.hover{
+            background-color: #2563eb;
+        }
+    }
+
+    &.secondary {
+        background-color: #e5e7eb;
+
+        &.hover{
+            background-color: #d1d5db;
+        }
+    }
+`
+
+export const OverLay = styled.div`
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+export const PopupContainer = styled.div`
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 24rem;
+    position: relative;
+`
+
+export const CloseButton = styled.button`
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #6b7280;
+
+    &.hoer{
+        color: #374151;
+    }
+`
+
+export const Title = styled.h2`
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+`
+
+export const Content = styled.div`
+    margin-bottom: 1rem;
+`
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+`
