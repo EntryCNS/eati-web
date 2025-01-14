@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import {FLAVOR} from '../../constants/keyword/flavor';
 import {KIND} from '../../constants/keyword/kind'
 import {OTHERS} from '../../constants/keyword/others'
-import { click } from "@testing-library/user-event/dist/click";
 
 const SelectKeyword = () => {
   const navigate = useNavigate();

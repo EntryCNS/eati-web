@@ -18,6 +18,14 @@ const CreatingGroup = () => {
       <S.MainCharacterContainer>
         <S.MainCharacter src={mainCharacterImg}></S.MainCharacter>
       </S.MainCharacterContainer>
+      <div>
+        <S.selectedKeyword>
+          선택한 키워드
+        </S.selectedKeyword>
+      </div>
+      <S.exitButtonContainer>
+        <S.exitButton>나가기</S.exitButton>
+      </S.exitButtonContainer>
     </div>
   )
 }
