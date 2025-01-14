@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import mainCharacterImg from "../../asset/main.png";
+import caution from '../../asset/ caution.svg'
 import backbutton from "../../asset/back.svg";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +10,10 @@ const CreatingGroup = () => {
 
   function handleBackButton() {
     navigate("/");
+  }
+
+  function handleExitButton() {
+    navigate("/")
   }
 
   const [isOpen, setIsOpen] = useState(false)
@@ -33,15 +38,18 @@ const CreatingGroup = () => {
         {isOpen && (
           <S.OverLay>
             <S.PopupContainer>
-              <S.Title>추천 서비시를 취소하고 나가시겠습니까?</S.Title>
+              <S.cautionImg src={caution}></S.cautionImg>
+              <S.Title>추천 서비스를 <span style={{color:'#FF491B', fontFamily: 'yg-jalnan'}}>취소</span>하고 나가시겠습니까?</S.Title>
               <S.Content>
                 선택한 내용들은 모두 초기화 됩니다.
               </S.Content>
-
               <S.ButtonContainer>
-                <S.Button className='secondary' onClick={closePopup}>
+                <S.cancellationButton className='secondary' onClick={closePopup}>
+                  취소
+                </S.cancellationButton>
+                <S.checkButton className='secondary' onClick={handleExitButton}>
                   확인
-                </S.Button>
+                </S.checkButton>
               </S.ButtonContainer>
             </S.PopupContainer>
           </S.OverLay>

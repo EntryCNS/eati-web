@@ -34,9 +34,9 @@ export const exitButtonContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* 부모 컨테이너의 가로 크기 설정 */
-    height: auto; /* 필요 시 높이 조정 */
-    margin-top: 20px; /* 적절한 여백 추가 */
+    width: 100%; 
+    height: auto;
+    margin-top: 20px;
 `
 
 export const exitButton = styled.button`
@@ -51,33 +51,37 @@ export const exitButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center; /* 텍스트 가로 정렬 */
-    line-height: normal; /* line-height 초기화 */
-    padding: 0; /* 기본 패딩 제거 */
+    text-align: center;
+    line-height: normal; 
+    padding: 0;
 `
 
-export const Button = styled.button`
+export const checkButton = styled.button`
     padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
+    border-radius: 0.5rem;
     font-weight: 500;
     transition: all 0.2s;
+    margin: 20px;
+    border: none;
+    background-color: #FF491B;
+    color: white;
+    width: 150px;
+    height: 50px;
+    font-size: 14px;
+    margin-bottom: -3px;
+`
 
-    &.primary {
-        background-color: #3b82f6;
-        color: white;
-
-        &.hover{
-            background-color: #2563eb;
-        }
-    }
-
-    &.secondary {
-        background-color: #e5e7eb;
-
-        &.hover{
-            background-color: #d1d5db;
-        }
-    }
+export const cancellationButton = styled.button`
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    margin: 20px;
+    border: none;
+    width: 150px;
+    height: 50px;
+    font-size: 14px;
+    margin-bottom: -3px;
 `
 
 export const OverLay = styled.div`
@@ -87,14 +91,14 @@ export const OverLay = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    
 `
 
 export const PopupContainer = styled.div`
     background-color: white;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     padding: 1.5rem;
-    width: 24rem;
-    position: relative;
+    width: 28rem;
 `
 
 export const CloseButton = styled.button`
@@ -112,14 +116,28 @@ export const Title = styled.h2`
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'yg-jalnan', sans-serif;
 `
 
 export const Content = styled.div`
     margin-bottom: 1rem;
+    text-align: center;
+    margin-bottom: 25px;
 `
 
 export const ButtonContainer = styled.div`
     display: flex;
-    justify-content: flex-end;
     gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+`
+
+export const cautionImg = styled.img`
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 70px;
 `
