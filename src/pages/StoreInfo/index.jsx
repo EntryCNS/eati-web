@@ -11,7 +11,7 @@ const StoreInfo = () => {
 
             // 임시 데이터
             const mockData = [
-                { id: 1, name: 'Product A', description: 'This is Product A' },
+                { id: 1, name: 'Product A', description: 'This is Product A', img: 'img 1' },
                 { id: 2, name: 'Product B', description: 'This is Product B' },
                 { id: 3, name: 'Product C', description: 'This is Product C' },
             ];
@@ -29,6 +29,7 @@ const StoreInfo = () => {
 
     return (
         <div>
+            <img src={product.img} alt="img" />
             <h1>{product.name}</h1>
             <p>{product.description}</p>
         </div>
