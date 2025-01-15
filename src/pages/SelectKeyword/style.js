@@ -29,7 +29,7 @@ export const Keyword = styled.div`
 export const KeywordButton = styled.button`
   border-radius: 10px;
   width: 6vw;
-  height: 4vh;
+  height: 5vh;
   border: none;
   font-size: 0.9em;
   background-color: ${(props) => (props.isClicked ? "#FF491B" : "#FFDCD4")};
@@ -45,24 +45,4 @@ export const KeywordButtonContainer = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 20px;
-`
-
-export const SelectButton = styled.button`
-  margin-top: 45px;
-  width: 35.7vw;
-  height: 6vh;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  background-color: #FF633C;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-`
-
-export const SelectButtonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
 `

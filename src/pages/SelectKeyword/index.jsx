@@ -80,9 +80,6 @@ const SelectKeyword = () => {
           }
         </S.KeywordButtonContainer>
       </div>
-      <S.SelectButtonContainer>
-        <S.SelectButton onClick={handleSelectButton}>선택 완료</S.SelectButton>
-      </S.SelectButtonContainer>
     </div>
   );
 };
