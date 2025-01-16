@@ -26,23 +26,29 @@ export const Keyword = styled.div`
   color: #979797;
   font-weight: bold;
 `
+
 export const KeywordButton = styled.button`
-  border-radius: 10px;
-  width: 6vw;
-  height: 5vh;
+  flex: 1 1 calc(20% - 10px); /* 부모 컨테이너의 20% 너비에서 간격 제외 */
+  max-width: 20%; /* 최대 너비 20% */
+  height: 4vh;
   border: none;
+  border-radius: 10px;
   font-size: 0.9em;
   background-color: ${(props) => (props.isClicked ? "#FF491B" : "#FFDCD4")};
   cursor: pointer;
+  text-align: center;
   &:hover {
-    transform:scale(1.03,1.03);
+    transform: scale(1.03, 1.03);
   }
-`
+`;
+
 
 export const KeywordButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between; /* 버튼 간 간격 자동 조정 */
+  flex-wrap: wrap; /* 줄바꿈 허용 */
+  gap: 10px; /* 버튼 간 간격 */
   margin-top: 20px;
-`
+  padding-left: 40px;
+  padding-right: 40px;
+`;

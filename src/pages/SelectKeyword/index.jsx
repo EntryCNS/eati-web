@@ -3,8 +3,9 @@ import * as S from "./style";
 import backbutton from "../../asset/back.svg";
 import { useNavigate } from "react-router-dom";
 import {FLAVOR} from '../../constants/keyword/flavor';
-import {KIND} from '../../constants/keyword/kind'
-import {OTHERS} from '../../constants/keyword/others'
+import {KIND} from '../../constants/keyword/kind';
+import {OTHERS} from '../../constants/keyword/others';
+import Button from '../../components/common'
 
 const SelectKeyword = () => {
   const navigate = useNavigate();
@@ -13,9 +14,7 @@ const SelectKeyword = () => {
     navigate("/");    
   }
 
-  function handleSelectButton() {
-    navigate("/CreatingGroup");
-  }
+
 
   return (
     <div>
@@ -80,6 +79,7 @@ const SelectKeyword = () => {
           }
         </S.KeywordButtonContainer>
       </div>
+      <Button/>
     </div>
   );
 };
