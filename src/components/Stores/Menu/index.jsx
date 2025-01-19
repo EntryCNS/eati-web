@@ -1,7 +1,6 @@
 import React from 'react'
 import * as S from './style'
-import Foods from '../Foods/index'
-import { Link } from 'react-router-dom'
+import Foods from '../foods/index'
 
 const Menu = () => {
     return (

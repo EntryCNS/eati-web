@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as S from './style'
+import Button from '../../components/common/button'
+import { useNavigate } from 'react-router-dom'
 
 const InputName = () => {
+    const navigate = useNavigate();
+    const [name, setName] = useState('');
+
+    const handleNameSubmit = () => {
+        if (name.trim() === '') {
+            alert('이름을 입력해주세요.');
+        } else {
+            navigate('/')
+        }
+    }
+
     return (
         <>
             <S.Background>
@@ -13,10 +26,15 @@ const InputName = () => {
                     <S.Title>EATI</S.Title>
                     <S.Title2>잇티</S.Title2>
                 </S.TitleBox>
+                <S.InputBox>
+                    <S.Input
+                        type='text'
+                        placeholder='이름을 입력하세요'
+                        value={name} 
+                        onChange={(e) => setName(e.target.value)}/>
+                </S.InputBox>
             </S.Background>
-            <S.InputBox>
-                <S.Input placeholder='이름을 입력하세요' />
-            </S.InputBox>
+            <Button text={"시작하기"} location={"/"} onClick={handleNameSubmit} />
         </>
     )
 }

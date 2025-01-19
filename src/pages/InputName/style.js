@@ -1,13 +1,26 @@
 import styled from "styled-components";
 
+const theme = {
+    colors: {
+        primary: '#FF643E',
+        white: '#FFFFFF',
+        gray: '#A5A5A5'
+    }
+}
+
 export const Background = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
-    padding-bottom: 0;
+    padding: 3rem;
+    margin-bottom: 7rem;
     height: 60vh;
-    background-image: linear-gradient(to bottom, #FF633C 0%, #FFA892 50%, #f8f9fa 95%);
+    background-image: linear-gradient(
+        to bottom, 
+        ${theme.colors.primary} 0%, 
+        #FFA892 50%, 
+        #f8f9fa 95%
+    );
 `
 
 export const SubTitleBox = styled.div`
@@ -16,22 +29,23 @@ export const SubTitleBox = styled.div`
 `
 
 export const SubTitle = styled.h3`
-    color: #FFFFFF;
+    color: ${theme.colors.white};
     font-family: 'yg-jalnan';
 `
 
 export const SubTitle2 = styled.h2`
-    color: #FFFFFF;
+    color: ${theme.colors.white};
     font-family: 'yg-jalnan';
 `
 
 export const TitleBox = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom: 80px;
 `
 
 export const Title = styled.h1`
-    color: #FFFFFF;
+    color: ${theme.colors.white};
     font-size: 7em;
     font-family: 'yg-jalnan';
     -webkit-text-stroke: 6px #FF643E;
@@ -52,12 +66,13 @@ export const InputBox = styled.div`
 `
 
 export const Input = styled.input`
-    width: 270px;
+    width: 22vw;
+    min-width: 270px;
     padding: 14px 20px;
-    border: 1px solid #A5A5A5;
+    border: 1px solid ${theme.colors.gray};
     border-radius: 17px;
 
     &::placeholder{
-        color: #A5A5A5;
+        color: ${theme.colors.gray};
     }
 `
