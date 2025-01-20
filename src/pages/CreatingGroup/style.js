@@ -7,10 +7,12 @@ export const SelectKeyword = styled.div`
     margin-top: 100px;
 `
 
+
 export const MainCharacter = styled.img`
     margin-top: 20px;
     align-items: center;
 `
+
 
 export const MainCharacterContainer = styled.div`
     display: flex;
@@ -19,16 +21,19 @@ export const MainCharacterContainer = styled.div`
     flex-wrap: wrap;
 `
 
+
 export const backbutton = styled.img`
-  margin-left: 25px;
-  margin-top: 50px;
+    margin-left: 25px;
+    margin-top: 50px;
 `
+
 
 export const selectedKeyword = styled.div`
     font-family: 'yg-jalnan', sans-serif;
     margin-left: 30px;
     margin-top: 150px;
 `
+
 
 export const exitButtonContainer = styled.div`
     display: flex;
@@ -38,6 +43,7 @@ export const exitButtonContainer = styled.div`
     height: auto; /* 필요 시 높이 조정 */
     margin-top: 20px; /* 적절한 여백 추가 */
 `
+
 
 export const exitButton = styled.button`
     width: 170px;
@@ -55,6 +61,7 @@ export const exitButton = styled.button`
     line-height: normal; /* line-height 초기화 */
     padding: 0; /* 기본 패딩 제거 */
 `
+
 
 export const Button = styled.button`
     padding: 0.5rem 1rem;
@@ -80,6 +87,7 @@ export const Button = styled.button`
     }
 `
 
+
 export const OverLay = styled.div`
     position: fixed;
     inset: 0;
@@ -89,6 +97,7 @@ export const OverLay = styled.div`
     justify-content: center;
 `
 
+
 export const PopupContainer = styled.div`
     background-color: white;
     border-radius: 0.5rem;
@@ -96,6 +105,7 @@ export const PopupContainer = styled.div`
     width: 24rem;
     position: relative;
 `
+
 
 export const CloseButton = styled.button`
     position: absolute;
@@ -108,18 +118,56 @@ export const CloseButton = styled.button`
     }
 `
 
+
 export const Title = styled.h2`
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1rem;
 `
 
+
 export const Content = styled.div`
     margin-bottom: 1rem;
 `
+
 
 export const ButtonContainer = styled.div`
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
 `
+
+
+export const cautionImg = styled.img`
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+`;
+
+export const cancellationButton = styled.button`
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  background-color: #e5e7eb;
+  font-weight: 500;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #d1d5db;
+  }
+`;
+
+
+export const checkButton = styled.button`
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 500;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #2563eb;
+  }
+`;
+
+
