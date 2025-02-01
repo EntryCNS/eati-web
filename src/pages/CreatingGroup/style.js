@@ -171,3 +171,26 @@ export const checkButton = styled.button`
 `;
 
 
+export const KeywordButton = styled.button`
+  flex: 1 1 calc(20% - 10px); 
+  max-width: 20%; 
+  height: 4vh;
+  border: none;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 0.9em;
+  background-color: ${(props) => (props.isClicked ? "#FF491B" : "#FFDCD4")};
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+    transform: scale(1.03, 1.03);
+  }
+`
+
+export const KeywordButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap; 
+  margin-top: 20px;
+  padding-right: 40px;
+  margin-left: 30px;
+`;

@@ -5,34 +5,33 @@ import { useNavigate } from "react-router-dom";
 import { FLAVOR } from "../../constants/keyword/flavor";
 import { KIND } from "../../constants/keyword/kind";
 import { OTHERS } from "../../constants/keyword/others";
-import Button from "../../components/common";
 
 const SelectKeyword = () => {
   const navigate = useNavigate();
 
-
-  // 상태 초기화: 각 카테고리는 빈 배열로 시작 (여러 개 선택 가능)
   const [selectedKeywords, setSelectedKeywords] = useState({
     flavor: [],
     kind: [],
     others: [],
   });
 
-  // 뒤로 가기 버튼 처리
+  function handleCompleteSelection() {
+    navigate("/creating-group", { state: { selectedKeywords } }); 
+  }
+
+
   function handleBackButton() {
     navigate("/");
   }
 
-  // 버튼 클릭 시, 해당 키워드 정보 추가/삭제
+
   function handleKeywordClick(type, keyword) {
     setSelectedKeywords((prev) => {
       const newKeywords = { ...prev };
-      // 키워드가 이미 선택되어 있으면 취소, 아니면 추가
+
       if (newKeywords[type].includes(keyword)) {
-        // 이미 선택된 키워드는 삭제
         newKeywords[type] = newKeywords[type].filter((item) => item !== keyword);
       } else {
-        // 선택되지 않은 키워드는 추가
         newKeywords[type] = [...newKeywords[type], keyword];
       }
       return newKeywords;
@@ -62,7 +61,7 @@ const SelectKeyword = () => {
           {FLAVOR.map((data) => (
             <S.KeywordButton
               key={data.name}
-              isClicked={selectedKeywords.flavor.includes(data.name)} // isClicked가 상태에 맞춰 변경
+              isClicked={selectedKeywords.flavor.includes(data.name)}
               onClick={() => handleKeywordClick("flavor", data.name)}
             >
               {data.name}
@@ -84,7 +83,7 @@ const SelectKeyword = () => {
           {KIND.map((data) => (
             <S.KeywordButton
               key={data.name}
-              isClicked={selectedKeywords.kind.includes(data.name)} // 동일하게 상태에 맞춰 변경
+              isClicked={selectedKeywords.kind.includes(data.name)} 
               onClick={() => handleKeywordClick("kind", data.name)}
             >
               {data.name}
@@ -106,7 +105,7 @@ const SelectKeyword = () => {
           {OTHERS.map((data) => (
             <S.KeywordButton
               key={data.name}
-              isClicked={selectedKeywords.others.includes(data.name)} // 동일하게 상태에 맞춰 변경
+              isClicked={selectedKeywords.others.includes(data.name)}
               onClick={() => handleKeywordClick("others", data.name)}
             >
               {data.name}
@@ -114,8 +113,10 @@ const SelectKeyword = () => {
           ))}
         </S.KeywordButtonContainer>
       </div>
-      <Button />
-    </div>
+      <S.SelectButtonContainer>
+        <S.SelectButton onClick={handleCompleteSelection}>완료</S.SelectButton>
+      </S.SelectButtonContainer>
+   </div>
   );
 };
 

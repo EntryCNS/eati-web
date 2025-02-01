@@ -28,8 +28,8 @@ export const Keyword = styled.div`
 `
 
 export const KeywordButton = styled.button`
-  flex: 1 1 calc(20% - 10px); /* 부모 컨테이너의 20% 너비에서 간격 제외 */
-  max-width: 20%; /* 최대 너비 20% */
+  flex: 1 1 calc(20% - 10px); 
+  max-width: 20%; 
   height: 4vh;
   border: none;
   border-radius: 10px;
@@ -40,7 +40,7 @@ export const KeywordButton = styled.button`
   &:hover {
     transform: scale(1.03, 1.03);
   }
-`;
+`
 
 
 export const KeywordButtonContainer = styled.div`
@@ -52,3 +52,25 @@ export const KeywordButtonContainer = styled.div`
   padding-left: 40px;
   padding-right: 40px;
 `;
+
+
+export const SelectButton = styled.button`
+  margin-top: 45px;
+  width: 35.7vw;
+  height: 6vh;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  background-color: #FF633C;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+`
+
+export const SelectButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+`
