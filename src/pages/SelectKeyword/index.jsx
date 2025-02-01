@@ -2,19 +2,40 @@ import React, { useState } from "react";
 import * as S from "./style";
 import backbutton from "../../asset/back.svg";
 import { useNavigate } from "react-router-dom";
-import {FLAVOR} from '../../constants/keyword/flavor';
-import {KIND} from '../../constants/keyword/kind'
-import {OTHERS} from '../../constants/keyword/others'
+import { FLAVOR } from "../../constants/keyword/flavor";
+import { KIND } from "../../constants/keyword/kind";
+import { OTHERS } from "../../constants/keyword/others";
 
 const SelectKeyword = () => {
   const navigate = useNavigate();
 
-  function handleBackButton() {
-    navigate("/");    
+  const [selectedKeywords, setSelectedKeywords] = useState({
+    flavor: [],
+    kind: [],
+    others: [],
+  });
+
+  function handleCompleteSelection() {
+    navigate("/creating-group", { state: { selectedKeywords } }); 
   }
 
-  function handleSelectButton() {
-    navigate("/CreatingGroup");
+
+  function handleBackButton() {
+    navigate("/");
+  }
+
+
+  function handleKeywordClick(type, keyword) {
+    setSelectedKeywords((prev) => {
+      const newKeywords = { ...prev };
+
+      if (newKeywords[type].includes(keyword)) {
+        newKeywords[type] = newKeywords[type].filter((item) => item !== keyword);
+      } else {
+        newKeywords[type] = [...newKeywords[type], keyword];
+      }
+      return newKeywords;
+    });
   }
 
   return (
@@ -37,14 +58,18 @@ const SelectKeyword = () => {
           }}
         />
         <S.KeywordButtonContainer>
-          {
-            FLAVOR.map((data)=>(
-              <S.KeywordButton>{data.name}</S.KeywordButton>
-            ))
-          }
+          {FLAVOR.map((data) => (
+            <S.KeywordButton
+              key={data.name}
+              isClicked={selectedKeywords.flavor.includes(data.name)}
+              onClick={() => handleKeywordClick("flavor", data.name)}
+            >
+              {data.name}
+            </S.KeywordButton>
+          ))}
         </S.KeywordButtonContainer>
       </div>
-      <div>  
+      <div>
         <S.Keyword>음식 종류</S.Keyword>
         <hr
           style={{
@@ -55,11 +80,15 @@ const SelectKeyword = () => {
           }}
         />
         <S.KeywordButtonContainer>
-          {
-            KIND.map((data)=>(
-              <S.KeywordButton>{data.name}</S.KeywordButton>
-            ))
-          }
+          {KIND.map((data) => (
+            <S.KeywordButton
+              key={data.name}
+              isClicked={selectedKeywords.kind.includes(data.name)} 
+              onClick={() => handleKeywordClick("kind", data.name)}
+            >
+              {data.name}
+            </S.KeywordButton>
+          ))}
         </S.KeywordButtonContainer>
       </div>
       <div>
@@ -73,16 +102,22 @@ const SelectKeyword = () => {
           }}
         />
         <S.KeywordButtonContainer>
-          {
-            OTHERS.map((data)=>(
-              <S.KeywordButton>{data.name}</S.KeywordButton>
-            ))
-          }
+          {OTHERS.map((data) => (
+            <S.KeywordButton
+              key={data.name}
+              isClicked={selectedKeywords.others.includes(data.name)}
+              onClick={() => handleKeywordClick("others", data.name)}
+            >
+              {data.name}
+            </S.KeywordButton>
+          ))}
         </S.KeywordButtonContainer>
       </div>
-    </div>
+      <S.SelectButtonContainer>
+        <S.SelectButton onClick={handleCompleteSelection}>완료</S.SelectButton>
+      </S.SelectButtonContainer>
+   </div>
   );
 };
 
 export default SelectKeyword;
-

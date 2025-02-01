@@ -12,8 +12,8 @@ const Router = () => {
         {/* <Route path='/' element={<App />} /> */}
         <Route path='/' element={<Main />} />
         <Route path='*' element={<NotFound />} />
-        <Route path='/SelectKeyword' element={<SelectKeyword/>}/>
-        <Route path='/CreatingGroup' element={<CreatingGroup/>}/>
+        <Route path='/select-keyword' element={<SelectKeyword/>}/>
+        <Route path='/creating-group' element={<CreatingGroup/>}/>
       </Routes>
     </AppRouter>
   );

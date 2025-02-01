@@ -6,7 +6,7 @@ const Button = () => {
   const navigate = useNavigate();
 
   function handleSelectButton() {
-    navigate("/CreatingGroup");
+    navigate("/creating-group");
   }
 
   return (
