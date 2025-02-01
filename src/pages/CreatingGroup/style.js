@@ -51,7 +51,7 @@ export const exitButton = styled.button`
     font-size: 20px;
     color: white;
     background-color: #FF633C;
-    margin-top: 80px;
+    margin-top: 50px;
     border: none;
     border-radius: 20px;
     display: flex;
@@ -122,18 +122,19 @@ export const CloseButton = styled.button`
 export const Title = styled.h2`
     font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 `
 
 
 export const Content = styled.div`
     margin-bottom: 1rem;
+    text-align: center;
 `
 
 
 export const ButtonContainer = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; 
     gap: 0.5rem;
 `
 
@@ -141,33 +142,34 @@ export const ButtonContainer = styled.div`
 export const cautionImg = styled.img`
   width: 50px;
   height: 50px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto; 
+  display: block;
 `;
 
 export const cancellationButton = styled.button`
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
-  background-color: #e5e7eb;
+  background-color: #E2E2E2;
   font-weight: 500;
   transition: all 0.2s;
-
-  &:hover {
-    background-color: #d1d5db;
-  }
+  border: none;
+  font-size: 14px;
+  width: 136px;
+  height: 40px;
 `;
 
 
 export const checkButton = styled.button`
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
-  background-color: #3b82f6;
+  background-color: #FF491B;
   color: white;
+  font-size: 14px;
   font-weight: 500;
   transition: all 0.2s;
-
-  &:hover {
-    background-color: #2563eb;
-  }
+  border: none;
+  width: 136px;
+  height: 40px;
 `;
 
 
