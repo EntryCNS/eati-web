@@ -6,6 +6,7 @@ import searchingMagnifyingGlass from '../../asset/searchingMagnifyingGlass.svg';
 import copyBtn from '../../asset/copyBtn.svg'
 import shareBtn from '../../asset/shareBtn.svg'
 import words from './words'
+import restaurantsInfo from './restaurantsInfo.json'
 
 const options = {
   rotations: 2,
@@ -16,7 +17,8 @@ const Main = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const modalBackground = useRef();
   const [shareCode, setshareCode] = useState('KLLEIR82K');
-
+  
+  const googleMapURL = "https://www.google.com/maps/search/"
   const handleCopy = () => {
     navigator.clipboard.writeText(shareCode).then(() => {
       alert("텍스트가 클립보드에 복사되었습니다!")
@@ -50,20 +52,41 @@ const Main = () => {
           <S.textsBox>
             <S.texts>근처 식당들을 살펴보아요 👀</S.texts>
           </S.textsBox>
+
           <S.restaurantsBox>
-            <S.restaurant>대충 다양한 음식점들1</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들2</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들3</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들4</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들5</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들6</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들7</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들8</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들9</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들10</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들11</S.restaurant>
-            <S.restaurant>대충 다양한 음식점들12</S.restaurant>
+            {
+            restaurantsInfo.restaurants.map((data)=>(
+            <S.restaurant>
+              <div style={{
+                width: '100%'
+              }}>
+                <S.restaurantImg src={data.photos[0]} alt="가게 사진" />
+                <S.restaurantLocationImg src={data.photos[1]} alt="가게 위치" />
+              </div>
+              <S.restaurantInfoBox>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  }}>
+                  <S.restaurantName>{data.name}</S.restaurantName>
+                  <S.restaurantLocationBox><a href={`${googleMapURL}${data.name} ${data.address}`} target='_blank' style={{
+                    textDecorationLine : 'none',
+                    color : '#3C4043',
+                    fontWeight : 'bold',
+                    fontSize : '0.7rem',
+                  }}>위치</a></S.restaurantLocationBox>
+                </div>
+                <div>
+                  <p style={{fontSize:'0.9rem'}}>주소: {data.address}</p>
+                  <p style={{fontSize:'0.9rem'}}>번호: {data.phone}</p>
+                </div>
+              </S.restaurantInfoBox>
+            </S.restaurant>
+            ))
+            }
           </S.restaurantsBox>
+
         <S.makeGroupBtn onClick={() => setModalOpen(true)}>그룹 만들기</S.makeGroupBtn>
         {modalOpen && 
         <S.modalContainer ref={modalBackground} onClick = { e => { 
@@ -96,3 +119,4 @@ const Main = () => {
 }
 
 export default Main
+
