@@ -16,6 +16,7 @@ const AppContainer = styled.div`
 function App() {
   return (
       <AppContainer>
+        <Router />
       </AppContainer>
   );
 }
