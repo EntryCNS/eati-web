@@ -35,6 +35,7 @@ export const KeywordButton = styled.button`
   border-radius: 10px;
   font-size: 0.9em;
   background-color: ${(props) => (props.isClicked ? "#FF491B" : "#FFDCD4")};
+  color: ${(props) => (props.isClicked ? "#ffffff" : "#000000")};
   cursor: pointer;
   text-align: center;
   &:hover {
