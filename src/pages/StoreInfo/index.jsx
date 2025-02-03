@@ -8,6 +8,9 @@ const StoreInfo = () => {
 
     useEffect(() => {
         const fetchProduct = async () => {
+            const response = await fetch(`/api/products/${id}`);
+            const data = await response.json();
+            setProduct(data);
 
             // 임시 데이터
             const mockData = [

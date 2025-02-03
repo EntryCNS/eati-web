@@ -29,7 +29,6 @@ const Main = () => {
 
   return (
     <>
-      <div>main</div>
       <S.main>
         <S.container>
           <form>

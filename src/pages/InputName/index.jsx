@@ -30,7 +30,7 @@ const InputName = () => {
                     <S.Input
                         type='text'
                         placeholder='이름을 입력하세요'
-                        value={name} 
+                        value={name}
                         onChange={(e) => setName(e.target.value)}/>
                 </S.InputBox>
             </S.Background>
