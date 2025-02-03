@@ -21,7 +21,7 @@ const SelectKeyword = () => {
 
 
   function handleBackButton() {
-    navigate("/");
+    navigate("/main");
   }
 
 
