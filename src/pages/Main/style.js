@@ -93,7 +93,7 @@ export const wrap = styled.div`
   border: #AEACAC 1px solid;
   border-radius: 20px 20px 0px 0px;
   width: 600px;
-  height: 35vh;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;

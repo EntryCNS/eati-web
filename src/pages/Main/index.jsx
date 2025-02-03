@@ -7,6 +7,7 @@ import copyBtn from '../../asset/copyBtn.svg'
 import shareBtn from '../../asset/shareBtn.svg'
 import words from './words'
 import restaurantsInfo from './restaurantsInfo.json'
+import { useNavigate } from 'react-router-dom'
 
 const options = {
   rotations: 2,
@@ -14,6 +15,7 @@ const options = {
 };
 
 const Main = () => {
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const modalBackground = useRef();
   const [shareCode, setshareCode] = useState('KLLEIR82K');
@@ -69,12 +71,13 @@ const Main = () => {
                       alignItems: 'center',
                     }}>
                       <S.restaurantName>{data.name}</S.restaurantName>
-                      <S.restaurantLocationBox><a href={`${googleMapURL}${data.name} ${data.address}`} target='_blank' style={{
+                     <a href={`${googleMapURL}${data.name} ${data.address}`} target='_blank' style={{
                         textDecorationLine: 'none',
                         color: '#3C4043',
                         fontWeight: 'bold',
                         fontSize: '0.7rem',
-                      }}>위치</a></S.restaurantLocationBox>
+                      }}><S.restaurantLocationBox>위치</S.restaurantLocationBox>
+                      </a>
                     </div>
                     <div>
                       <p style={{ fontSize: '0.9rem' }}>주소: {data.address}</p>
@@ -96,7 +99,7 @@ const Main = () => {
               <S.wrap>
                 <S.modalContent>
                   <S.modalCloseButtonBox>
-                    <S.modalCloseButton onClick={() => setModalOpen(false)}>
+                    <S.modalCloseButton onClick={() => navigate('/select-keyword')}>
                       공유 완료
                     </S.modalCloseButton>
                   </S.modalCloseButtonBox>
@@ -114,7 +117,6 @@ const Main = () => {
           }
         </S.container>
       </S.main>
-    </>
   )
 }
 
