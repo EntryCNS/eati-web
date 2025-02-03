@@ -54,7 +54,7 @@ const StoreReco = () => {
     return (
         <>
             <S.Back src={backbtn} alt="뒤로가기" onClick={handleBackButton} />
-            {isLoading && <p>로딩중....</p>}
+            {isLoading && <p>로딩중...</p>}
             
             <S.Title>이런 음식은 어때요?</S.Title>
             {!isLoading && !error && products.length === 0 && <p>추천할 음식이 없습니다.</p>}
