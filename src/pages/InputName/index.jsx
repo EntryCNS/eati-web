@@ -11,7 +11,7 @@ const InputName = () => {
         if (name.trim() === '') {
             alert('이름을 입력해주세요.');
         } else {
-            navigate('/')
+            navigate('/main')
         }
     }
 
