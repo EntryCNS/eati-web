@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import * as S from './style'
-import Stores from '../../components/stores/menu/index'
+import Stores from '../../components/Stores/Menu/index'
 import backbtn from '../../asset/back.svg'
 import { Link } from 'react-router-dom'
 

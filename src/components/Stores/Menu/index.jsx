@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './style'
-import Foods from '../foods/index'
+import Foods from '../Foods/index'
 
 const Menu = () => {
     return (

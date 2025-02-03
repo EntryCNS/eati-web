@@ -11,6 +11,7 @@ export const SelectButton = styled.button`
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
+  margin-bottom: 20px;
 `
 
 export const SelectButtonContainer = styled.div`

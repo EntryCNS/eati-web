@@ -13,13 +13,13 @@ const Router = () => {
     <AppRouter>
       <Routes>
         {/* <Route path='/' element={<App />} /> */}
-        <Route path='/Inputname' element={<InputName />} />
+        <Route path='/inputname' element={<InputName />} />
         <Route path='/' element={<Main />} />
         <Route path='*' element={<NotFound />} />
-        <Route path='/SelectKeyword' element={<SelectKeyword/>}/>
-        <Route path='/CreatingGroup' element={<CreatingGroup/>}/>
-        <Route path='/Recommend' element={<StoreReco />} />
-        <Route path='/Product/:id' element={<StoreInfo />} />
+        <Route path='/recommend' element={<StoreReco />} />
+        <Route path='/product/:id' element={<StoreInfo />} />
+        <Route path='/select-keyword' element={<SelectKeyword/>}/>
+        <Route path='/creating-group' element={<CreatingGroup/>}/>
       </Routes>
     </AppRouter>
   );
