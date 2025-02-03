@@ -179,9 +179,10 @@ export const KeywordButton = styled.button`
   height: 4vh;
   border: none;
   border-radius: 10px;
+  background-color: #FF491B;
+  color: white;
   margin-left: 10px;
   font-size: 0.9em;
-  background-color: ${(props) => (props.isClicked ? "#FF491B" : "#FFDCD4")};
   cursor: pointer;
   text-align: center;
   &:hover {

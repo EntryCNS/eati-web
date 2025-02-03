@@ -36,17 +36,17 @@ const CreatingGroup = () => {
       <div>
         <S.selectedKeyword>선택한 키워드</S.selectedKeyword>
         <S.KeywordButtonContainer>
-        {/* 맛 키워드 박스 */}
+
           {selectedKeywords.flavor.map((keyword, index) => (
             <S.KeywordButton key={`flavor-${index}`}>{keyword}</S.KeywordButton>
           ))}
 
-          {/* 음식 종류 키워드 박스 */}
+
           {selectedKeywords.kind.map((keyword, index) => (
             <S.KeywordButton key={`kind-${index}`}>{keyword}</S.KeywordButton>
           ))}
 
-          {/* 기타 키워드 박스 */}
+
           {selectedKeywords.others.map((keyword, index) => (
             <S.KeywordButton key={`others-${index}`}>{keyword}</S.KeywordButton>
           ))}
