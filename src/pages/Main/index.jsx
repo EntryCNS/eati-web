@@ -7,6 +7,7 @@ import copyBtn from '../../asset/copyBtn.svg'
 import shareBtn from '../../asset/shareBtn.svg'
 import words from './words'
 import restaurantsInfo from './restaurantsInfo.json'
+import { useNavigate } from 'react-router-dom'
 
 const options = {
   rotations: 2,
@@ -14,6 +15,7 @@ const options = {
 };
 
 const Main = () => {
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const modalBackground = useRef();
   const [shareCode, setshareCode] = useState('KLLEIR82K');
@@ -28,8 +30,6 @@ const Main = () => {
   };
 
   return (
-    <>
-      <div>main</div>
       <S.main>
         <S.container>
           <form>
@@ -97,7 +97,7 @@ const Main = () => {
               <S.wrap>
                 <S.modalContent>
                   <S.modalCloseButtonBox>
-                    <S.modalCloseButton onClick={() => setModalOpen(false)}>
+                    <S.modalCloseButton onClick={() => navigate('/select-keyword')}>
                       공유 완료
                     </S.modalCloseButton>
                   </S.modalCloseButtonBox>
@@ -115,7 +115,6 @@ const Main = () => {
           }
         </S.container>
       </S.main>
-    </>
   )
 }
 
