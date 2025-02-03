@@ -1,7 +1,7 @@
 import React from 'react'
 import Router from '../src/router';
 import styled from 'styled-components';
- 
+
 const AppContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;

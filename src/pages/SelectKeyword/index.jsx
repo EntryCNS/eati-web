@@ -16,7 +16,7 @@ const SelectKeyword = () => {
   });
 
   function handleCompleteSelection() {
-    navigate("/creating-group", { state: { selectedKeywords } }); 
+    navigate("/creating-group", { state: { selectedKeywords } });
   }
 
 
@@ -83,7 +83,7 @@ const SelectKeyword = () => {
           {KIND.map((data) => (
             <S.KeywordButton
               key={data.name}
-              isClicked={selectedKeywords.kind.includes(data.name)} 
+              isClicked={selectedKeywords.kind.includes(data.name)}
               onClick={() => handleKeywordClick("kind", data.name)}
             >
               {data.name}
@@ -116,7 +116,7 @@ const SelectKeyword = () => {
       <S.SelectButtonContainer>
         <S.SelectButton onClick={handleCompleteSelection}>완료</S.SelectButton>
       </S.SelectButtonContainer>
-   </div>
+    </div>
   );
 };
 
