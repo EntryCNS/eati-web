@@ -1,6 +1,14 @@
 import React from 'react';
 import { BrowserRouter as AppRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './pages/NotFound';
+
+
+
+
+
+
+
+
 import Main from './pages/Main';
 import CreatingGroup from './pages/CreatingGroup'
 import SelectKeyword from './pages/SelectKeyword';

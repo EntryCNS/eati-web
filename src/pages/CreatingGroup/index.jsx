@@ -13,7 +13,7 @@ const CreatingGroup = () => {
   }
 
   function handleExitButton() {
-    navigate("/")
+    navigate("/main")
   }
 
   const [isOpen, setIsOpen] = useState(false)
