@@ -70,12 +70,13 @@ const Main = () => {
                       alignItems: 'center',
                     }}>
                       <S.restaurantName>{data.name}</S.restaurantName>
-                      <S.restaurantLocationBox><a href={`${googleMapURL}${data.name} ${data.address}`} target='_blank' style={{
+                     <a href={`${googleMapURL}${data.name} ${data.address}`} target='_blank' style={{
                         textDecorationLine: 'none',
                         color: '#3C4043',
                         fontWeight: 'bold',
                         fontSize: '0.7rem',
-                      }}>위치</a></S.restaurantLocationBox>
+                      }}><S.restaurantLocationBox>위치</S.restaurantLocationBox>
+                      </a>
                     </div>
                     <div>
                       <p style={{ fontSize: '0.9rem' }}>주소: {data.address}</p>
