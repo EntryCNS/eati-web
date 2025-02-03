@@ -32,7 +32,7 @@ export const searchInputBox = styled.input`
 `
 
 export const searchingMagnifyingGlass = styled.img`
-  width: 1.5vw;
+  width: 20px;
 `
 
 export const texts = styled.p`
