@@ -30,6 +30,7 @@ const Main = () => {
   };
 
   return (
+    <>
       <S.main>
         <S.container>
           <form>

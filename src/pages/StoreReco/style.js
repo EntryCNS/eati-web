@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Back = styled.img`
     margin: 50px 30px 20px 30px;
+    cursor: pointer;
 `
 
 export const Title = styled.h1`
