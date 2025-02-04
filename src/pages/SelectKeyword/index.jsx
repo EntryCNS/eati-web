@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import backbutton from "../../asset/back.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { FLAVOR } from "../../constants/keyword/flavor";
 import { KIND } from "../../constants/keyword/kind";
 import { OTHERS } from "../../constants/keyword/others";
 
 const SelectKeyword = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const [selectedKeywords, setSelectedKeywords] = useState({
-    flavor: [],
-    kind: [],
-    others: [],
-  });
+  const [selectedKeywords, setSelectedKeywords] = useState(
+    location.state?.selectedKeywords || { flavor: [], kind: [], others: []}
+  );
 
   function handleCompleteSelection() {
-    navigate("/creating-group", { state: { selectedKeywords } });
+    navigate("/creating-group", {state: {selectedKeywords}});
   }
 
 
   function handleBackButton() {
-    navigate("/main");
+    navigate("/main", {state : {selectedKeywords}});
   }
 
 

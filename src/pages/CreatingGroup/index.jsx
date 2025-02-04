@@ -9,7 +9,7 @@ const CreatingGroup = () => {
   const navigate = useNavigate();
 
   function handleBackButton() {
-    navigate("/select-keyword");
+    navigate("/select-keyword", {state: { selectedKeywords}});
   }
 
   function handleExitButton() {
