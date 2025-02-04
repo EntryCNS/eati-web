@@ -20,25 +20,35 @@ const StoreReco = () => {
     //     { id: 3, name: 'Product C' },
     // ];
 
+    const location = "북구"; // 위도, 경도 예제
+    const keyword = "매콤한";
+    const radius = 50; // 반경 (미터 단위)
+
+    const params = new URLSearchParams({
+        location,
+        keyword,
+        radius
+    });
+
     const mainApi = async () => {
         setIsLoading(true)
         setError(null)
 
         try {
-            const response = await fetch(`api url`, {
+            const response = await fetch(`http://10.80.163.17:8080/api/restaurants/search?${params}`, {
                 method: 'GET',
                 headers: {
-                    Accept: 'application/json',
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(),
+                }
             });
 
             if (!response.ok) {
-                throw new Error('데이터를 불러오는 데 실패했습니다.');
+                throw new Error(`데이터를 불러오는 데 실패했습니다. 상태 코드: ${response.status}`);
             }
 
             const result = await response.json();
+            console.log(result)
             setProducts(result)
         } catch (error) {
             setError(error.message)
@@ -55,13 +65,13 @@ const StoreReco = () => {
         <>
             <S.Back src={backbtn} alt="뒤로가기" onClick={handleBackButton} />
             {isLoading && <p>로딩중...</p>}
-            
+
             <S.Title>이런 음식은 어때요?</S.Title>
             {!isLoading && !error && products.length === 0 && <p>추천할 음식이 없습니다.</p>}
-            {error && <p>{error}</p>}
+            {error && <p>에러 발생 {error}</p>}
 
-            {products.map((product) => (
-                <Link key={product.id} to={`/product/${product.id}`} style={{textDecoration: "none"}}>
+            {products.map((product, index) => (
+                <Link key={product.placeId} to={`/product/${product.placeId}`} style={{ textDecoration: "none" }}>
                     <Stores data={product} />
                 </Link>
             ))}

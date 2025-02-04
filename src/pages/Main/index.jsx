@@ -30,93 +30,92 @@ const Main = () => {
   };
 
   return (
-    <>
-      <S.main>
-        <S.container>
-          <form>
-            <S.searchBox>
-              <S.searchingMagnifyingGlass src={searchingMagnifyingGlass} alt='error' />
-              <S.searchInputBox type="search" placeholder='가고싶은 식당명을 입력해주세요.' />
-            </S.searchBox>
-          </form>
-          <div>
-            <S.textsBox>
-              <S.texts>요즘 유행하고 있어요!</S.texts>
-            </S.textsBox>
-            <div>
-              <ReactWordcloud
-                options={options}
-                words={words}
-              />
-            </div>
-          </div>
+    <S.main>
+      <S.container>
+        <form>
+          <S.searchBox>
+            <S.searchingMagnifyingGlass src={searchingMagnifyingGlass} alt='error' />
+            <S.searchInputBox type="search" placeholder='가고싶은 식당명을 입력해주세요.' />
+          </S.searchBox>
+        </form>
+        <div>
           <S.textsBox>
-            <S.texts>근처 식당들을 살펴보아요 👀</S.texts>
+            <S.texts>요즘 유행하고 있어요!</S.texts>
           </S.textsBox>
+          <div>
+            <ReactWordcloud
+              options={options}
+              words={words}
+            />
+          </div>
+        </div>
+        <S.textsBox>
+          <S.texts>근처 식당들을 살펴보아요 👀</S.texts>
+        </S.textsBox>
 
-          <S.restaurantsBox>
-            {
-              restaurantsInfo.restaurants.map((data) => (
-                <S.restaurant>
+        <S.restaurantsBox>
+          {
+            restaurantsInfo.restaurants.map((data) => (
+              <S.restaurant>
+                <div style={{
+                  width: '100%'
+                }}>
+                  <S.restaurantImg src={data.photos[0]} alt="가게 사진" />
+                  <S.restaurantLocationImg src={data.photos[1]} alt="가게 위치" />
+                </div>
+                <S.restaurantInfoBox>
                   <div style={{
-                    width: '100%'
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
                   }}>
-                    <S.restaurantImg src={data.photos[0]} alt="가게 사진" />
-                    <S.restaurantLocationImg src={data.photos[1]} alt="가게 위치" />
+                    <S.restaurantName>{data.name}</S.restaurantName>
+                    <a href={`${googleMapURL}${data.name} ${data.address}`} target='_blank' style={{
+                      textDecorationLine: 'none',
+                      color: '#3C4043',
+                      fontWeight: 'bold',
+                      fontSize: '0.7rem',
+                    }}><S.restaurantLocationBox>위치</S.restaurantLocationBox>
+                    </a>
                   </div>
-                  <S.restaurantInfoBox>
-                    <div style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                    }}>
-                      <S.restaurantName>{data.name}</S.restaurantName>
-                     <a href={`${googleMapURL}${data.name} ${data.address}`} target='_blank' style={{
-                        textDecorationLine: 'none',
-                        color: '#3C4043',
-                        fontWeight: 'bold',
-                        fontSize: '0.7rem',
-                      }}><S.restaurantLocationBox>위치</S.restaurantLocationBox>
-                      </a>
-                    </div>
-                    <div>
-                      <p style={{ fontSize: '0.9rem' }}>주소: {data.address}</p>
-                      <p style={{ fontSize: '0.9rem' }}>번호: {data.phone}</p>
-                    </div>
-                  </S.restaurantInfoBox>
-                </S.restaurant>
-              ))
-            }
-          </S.restaurantsBox>
-
-          <S.makeGroupBtn onClick={() => setModalOpen(true)}>그룹 만들기</S.makeGroupBtn>
-          {modalOpen &&
-            <S.modalContainer ref={modalBackground} onClick={e => {
-              if (e.target === modalBackground.current) {
-                setModalOpen(false);
-              }
-            }}>
-              <S.wrap>
-                <S.modalContent>
-                  <S.modalCloseButtonBox>
-                    <S.modalCloseButton onClick={() => navigate('/select-keyword')}>
-                      공유 완료
-                    </S.modalCloseButton>
-                  </S.modalCloseButtonBox>
-                  <S.shareCodeContainer>
-                    <p>초대코드 공유</p>
-                    <S.shareCodeBoxContainer>
-                      <S.shareCodeBox type="text" value={shareCode} />
-                      <S.shareBtn src={shareBtn} alt="shareBtn" />
-                      <S.copyBtn src={copyBtn} alt="copyBtn" onClick={handleCopy} />
-                    </S.shareCodeBoxContainer>
-                  </S.shareCodeContainer>
-                </S.modalContent>
-              </S.wrap>
-            </S.modalContainer>
+                  <div>
+                    <p style={{ fontSize: '0.9rem' }}>주소: {data.address}</p>
+                    <p style={{ fontSize: '0.9rem' }}>번호: {data.phone}</p>
+                  </div>
+                </S.restaurantInfoBox>
+              </S.restaurant>
+            ))
           }
-        </S.container>
-      </S.main>
+        </S.restaurantsBox>
+
+        <S.makeGroupBtn onClick={() => setModalOpen(true)}>그룹 만들기</S.makeGroupBtn>
+        {modalOpen &&
+          <S.modalContainer ref={modalBackground} onClick={e => {
+            if (e.target === modalBackground.current) {
+              setModalOpen(false);
+            }
+          }}>
+            <S.wrap>
+              <S.modalContent>
+                <S.modalCloseButtonBox>
+                  <S.modalCloseButton onClick={() => navigate('/select-keyword')}>
+                    공유 완료
+                  </S.modalCloseButton>
+                </S.modalCloseButtonBox>
+                <S.shareCodeContainer>
+                  <p>초대코드 공유</p>
+                  <S.shareCodeBoxContainer>
+                    <S.shareCodeBox type="text" value={shareCode} />
+                    <S.shareBtn src={shareBtn} alt="shareBtn" />
+                    <S.copyBtn src={copyBtn} alt="copyBtn" onClick={handleCopy} />
+                  </S.shareCodeBoxContainer>
+                </S.shareCodeContainer>
+              </S.modalContent>
+            </S.wrap>
+          </S.modalContainer>
+        }
+      </S.container>
+    </S.main>
   )
 }
 
