@@ -2,7 +2,9 @@ import React from 'react'
 import * as S from './style'
 import Foods from '../Foods/index'
 
-const Menu = () => {
+const Menu = (product) => {
+    console.log(product)
+
     return (
         <>
             <S.Container>
@@ -12,7 +14,7 @@ const Menu = () => {
                     <Foods />
                     <Foods />
                 </S.Menus>
-                <S.StoreName>가게이름</S.StoreName>
+                <S.StoreName>{product.data.name}</S.StoreName>
             </S.Container>
             <S.Border />
         </>
