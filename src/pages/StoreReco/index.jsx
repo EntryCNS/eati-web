@@ -11,7 +11,7 @@ const StoreReco = () => {
     const [error, setError] = useState(null); // 에러 상태
 
     function handleBackButton() {
-        navigate("/");
+        navigate("/main");
     }
 
     // const products = [ // 임시 데이터
