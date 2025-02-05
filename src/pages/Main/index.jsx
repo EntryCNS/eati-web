@@ -8,14 +8,12 @@ import words from './words';
 import restaurantsInfo from './restaurantsInfo.json';
 import { useNavigate } from 'react-router-dom';
 
-// 상수들을 컴포넌트 외부로 분리
 const GOOGLE_MAP_URL = "https://www.google.com/maps/search/";
 const WORDCLOUD_OPTIONS = {
   rotations: 2,
   rotationAngles: [-90, 0],
 };
 
-// Restaurant 컴포넌트를 분리하여 메모이제이션
 const Restaurant = React.memo(({ data }) => {
   return (
     <S.restaurant>
@@ -48,7 +46,6 @@ const Restaurant = React.memo(({ data }) => {
   );
 });
 
-// Modal 컴포넌트를 분리하여 메모이제이션
 const ShareModal = React.memo(({ modalBackground, onClose, onCopy, shareCode }) => {
   const navigate = useNavigate();
   
@@ -80,8 +77,6 @@ const Main = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [shareCode, setShareCode] = useState('KLLEIR82K');
   const modalBackground = useRef();
-  const [location, setLocation] = useState(null);
-  const [error, setError] = useState(null);
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(shareCode)
@@ -95,29 +90,48 @@ const Main = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser");
-      return;
-    }
-
-    const successCallback = (position) => {
-      const { latitude, longitude } = position.coords;
-      setLocation({ latitude, longitude });
-      setError(null);
-    };
-
-    const errorCallback = (err) => {
-      setError(err.message);
-    };
-
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-  }, []);
-
-  // 레스토랑 데이터를 useMemo로 메모이제이션
   const restaurantList = useMemo(() => restaurantsInfo.restaurants.map((data, index) => (
     <Restaurant key={data.id || index} data={data} />
   )), []);
+
+  const [address, setAddress] = useState({
+    road: "loading",
+    city: "loading",
+  });
+
+  useEffect(() => {
+    if (!navigator.geolocation) {
+      setAddress((prev) => ({ ...prev, city: "Geolocation 지원 안됨" }));
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.address) {
+              setAddress({
+                road: data.address.road || "없음",
+                city: data.address.city || data.address.town || data.address.village || "없음",
+              });
+            } else {
+              setAddress((prev) => ({ ...prev, city: "주소 정보 없음" }));
+            }
+          })
+          .catch(() => setAddress((prev) => ({ ...prev, city: "주소 가져오기 오류" })));
+      },
+      () => setAddress((prev) => ({ ...prev, city: "위치 권한 거부됨" }))
+    );
+  }, []);
+
+  if (address.city !== "loading" & address.road !== "loading"){
+    console.log(address.city,address.road)
+  }
 
   return (
     <S.main>
