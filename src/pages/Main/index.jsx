@@ -5,7 +5,6 @@ import searchingMagnifyingGlass from '../../asset/searchingMagnifyingGlass.svg';
 import copyBtn from '../../asset/copyBtn.svg';
 import shareBtn from '../../asset/shareBtn.svg';
 import words from './words';
-import restaurantsInfo from './restaurantsInfo.json';
 import { useNavigate } from 'react-router-dom';
 
 const GOOGLE_MAP_URL = "https://www.google.com/maps/search/";
@@ -18,8 +17,8 @@ const Restaurant = React.memo(({ data }) => {
   return (
     <S.restaurant>
       <div style={{ width: '100%' }}>
-        <S.restaurantImg src={data.photos[0]} alt="가게 사진" />
-        <S.restaurantLocationImg src={data.photos[1]} alt="가게 위치" />
+        {/* <S.restaurantImg src={data.photos[0]} alt="가게 사진" />
+        <S.restaurantLocationImg src={data.photos[1]} alt="가게 위치" /> */}
       </div>
       <S.restaurantInfoBox>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -72,11 +71,11 @@ const ShareModal = React.memo(({ modalBackground, onClose, onCopy, shareCode }) 
   );
 });
 
-
 const Main = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [shareCode, setShareCode] = useState('KLLEIR82K');
+  const [shareCode] = useState('KLLEIR82K');
   const modalBackground = useRef();
+  const [restaurantsInfo, setRestaurantsInfo] = useState([]);
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(shareCode)
@@ -90,9 +89,10 @@ const Main = () => {
     }
   }, []);
 
-  const restaurantList = useMemo(() => restaurantsInfo.restaurants.map((data, index) => (
-    <Restaurant key={data.id || index} data={data} />
-  )), []);
+  const restaurantList = useMemo(() => 
+    restaurantsInfo?.map((data, index) => (
+      <Restaurant key={data.id || index} data={data} />
+    )), [restaurantsInfo]);
 
   const [address, setAddress] = useState({
     road: "loading",
@@ -129,9 +129,24 @@ const Main = () => {
     );
   }, []);
 
-  if (address.city !== "loading" & address.road !== "loading"){
-    console.log(address.city,address.road)
-  }
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+      try {
+        const response = await fetch(
+          `http://10.80.161.186:8080/api/restaurants/search?location=${address.city}${address.road}&radius=1000`
+        );
+        const data = await response.json();
+        setRestaurantsInfo(data);
+        console.log(1)
+      } catch (error) {
+        console.error('식당 정보를 가져오는데 실패했습니다:', error);
+      }
+    };
+
+    if (address.city !== "loading" && address.road !== "loading") {
+      fetchRestaurants();
+    }
+  }, [address]);
 
   return (
     <S.main>
